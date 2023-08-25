@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
-let userSchema = new Schema({
+// mongoose.Promise = global.Promise
+
+const userSchema = new Schema({
     username:{
         type: String,
         required: [true, "Please provide a username"],
@@ -24,10 +26,12 @@ let userSchema = new Schema({
         default: false,
     },
     forgotPasswordToken: String,
-    forgotPasswordTokenExpiry: Date,
+    forgotPasswordTokenExpiry: Date,    
     varifyToken: String,
     verifyTokenExpiry: Date
 })
-
-const User = mongoose.model.users || mongoose.model( "users",  userSchema);
+export const User =     
+               mongoose.models.users 
+            || mongoose.model( "users",  userSchema);
+            
 export default User;

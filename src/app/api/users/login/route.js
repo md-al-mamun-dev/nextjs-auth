@@ -1,12 +1,11 @@
 
 import { connect } from "@/dbConfig/dbConfig";
+
 import User from "@/models/userModel"
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs"
 // const jwt = require('jsonwebtoken'); // tested required syntex is also working
 import jwt from 'jsonwebtoken'
-
-
 
 connect()
 
@@ -17,8 +16,12 @@ export async function POST(request){
         const reqBody = await request.json()
         const {email, password}  = reqBody;
 
+        // const UserModel = mongoose.model['users']
+        // console.log('before-------------------------fiend email')
+
         // Find user
         const user = await User.findOne({email})
+        // let user = await mongoose.model.users.findOne({email})
 
         // when user is not found  
         if(!user){
@@ -55,8 +58,7 @@ export async function POST(request){
             success: true,
         })
 
-        // response.cookies.set
-        
+        // response.cookies.set        
         response.cookies.set(   
                               'token', 
                                 token, 

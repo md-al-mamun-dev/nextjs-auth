@@ -11,7 +11,6 @@ export default function LoginPage(){
     const [user, setUser] = useState({
                                     email: "",
                                     password: "", 
-                                    usename: ""
                                 })
     const [loading, setLoading] = useState(false)
     const [buttonDisabled, setButtonDisabled] = useState(false)
@@ -62,7 +61,7 @@ export default function LoginPage(){
                 />
             <hr/>
 
-            <button onClick={onLogin}> Login</button>
+            <button onClick={onLogin}>Login</button>
             <hr/>
 
             dont have an account?...<span></span><Link href='./signup'>Signup heare</Link>
