@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
-// mongoose.Promise = global.Promise
+
 
 const userSchema = new Schema({
     username:{
